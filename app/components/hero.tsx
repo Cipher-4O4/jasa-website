@@ -5,7 +5,7 @@ import { ArrowRight, Play, Code, Globe } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white relative overflow-hidden">
+    <section id="home" className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent"></div>
       
@@ -44,23 +44,29 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <motion.button 
+              <motion.a 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                href="https://wa.me/628898153569?text=Saya%20ingin%20berkonsultasi%20tentang%20website"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center transition-all shadow-lg shadow-blue-500/25"
               >
                 Konsultasi Gratis
                 <ArrowRight className="ml-2" size={20} />
-              </motion.button>
+              </motion.a>
               
-              <motion.button 
+              <motion.a 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center transition-all backdrop-blur-sm"
+                href="https://portfolio-website-xi-mauve-13.vercel.app/"
+                target="_blank"
+                rel="noreferrer noopener"
               >
                 <Play className="mr-2" size={20} />
                 Lihat Portfolio
-              </motion.button>
+              </motion.a>
             </div>
 
             {/* Stats */}
@@ -108,7 +114,7 @@ export default function Hero() {
                       <div className="w-3 h-3 rounded-full bg-green-400"></div>
                     </div>
                     <div className="flex-1 bg-gray-100 rounded px-3 py-1.5 text-xs text-gray-600">
-                      www.bisnisanda.com
+                      wricom.digital
                     </div>
                   </div>
                   

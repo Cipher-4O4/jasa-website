@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code2, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Github, ArrowUp } from 'lucide-react'
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Github, ArrowUp } from 'lucide-react'
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -28,17 +28,21 @@ export default function Footer() {
             className="lg:col-span-1"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center text-white">
-                <Code2 className="w-7 h-7" />
-              </div>
+              <img
+                src="/wricom-logo.png"
+                alt="Wricom Logo"
+                width="48"
+                height="48"
+                className="rounded-lg w-12 h-12"
+              />
               <div>
-                <div className="text-2xl font-bold">WebDev<span className="text-blue-400">Agency</span></div>
-                <div className="text-sm text-gray-400 -mt-1">Professional Web Solutions</div>
+                <div className="text-2xl font-bold"><span className="text-blue-400">Wricom</span></div>
+                <div className="text-sm text-gray-400 -mt-1">Create Your Own Software</div>
               </div>
             </div>
             
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Kami adalah agency spesialis pembuatan website profesional yang membantu bisnis 
+              Wricom adalah agency spesialis pembuatan website profesional yang membantu bisnis 
               tumbuh melalui solusi digital inovatif dan hasil-driven.
             </p>
             
@@ -101,7 +105,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { name: 'Beranda', href: '#home' },
-                { name: 'Layanan', href: '#services' },
+                { name: 'Harga', href: '#pricing' },
                 { name: 'Portfolio', href: '#portfolio' },
                 { name: 'Testimoni', href: '#testimonials' },
                 { name: 'Proses Kerja', href: '#process' },
@@ -158,7 +162,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-400">Telepon/WhatsApp</div>
-                  <div className="font-semibold">+62 812-3456-7890</div>
+                  <div className="font-semibold">+62 889-8915-3569</div>
                 </div>
               </div>
               
@@ -168,19 +172,11 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-400">Email</div>
-                  <div className="font-semibold">hello@webdevagency.com</div>
+                  <div className="font-semibold">wricom.digital@gmail.com</div>
                 </div>
               </div>
               
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-sm text-gray-400">Alamat Kantor</div>
-                  <div className="font-semibold">Jakarta Selatan, Indonesia</div>
-                </div>
-              </div>
+              {/* Alamat kantor dihapus atas permintaan */}
             </div>
 
             {/* Business Hours */}
@@ -201,9 +197,9 @@ export default function Footer() {
         <div className="container mx-auto px-6 py-6">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
             <div className="text-gray-400 text-sm text-center lg:text-left">
-              © 2024 WebDev Agency. All rights reserved. | 
-              <a href="#" className="hover:text-blue-400 transition-colors ml-1">Privacy Policy</a> | 
-              <a href="#" className="hover:text-blue-400 transition-colors ml-1">Terms of Service</a>
+              © 2024 Wricom. All rights reserved. | 
+              <a href="/privacy-policy" className="hover:text-blue-400 transition-colors ml-1">Privacy Policy</a> | 
+              <a href="/terms-of-service" className="hover:text-blue-400 transition-colors ml-1">Terms of Service</a>
             </div>
             
             <div className="flex items-center gap-6 text-sm text-gray-400">

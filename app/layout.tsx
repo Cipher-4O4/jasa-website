@@ -7,8 +7,11 @@ import Footer from './components/footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'WebDev Agency - Jasa Pembuatan Website Profesional',
-  description: 'Kami spesialis pembuatan website company profile, e-commerce, dan landing page untuk bisnis Anda.',
+  title: 'Wricom - Jasa Pembuatan Website Profesional',
+  description: 'Wricom - Create Your Own Software. Kami spesialis pembuatan website company profile, e-commerce, dan landing page untuk bisnis Anda.',
+  icons: {
+    icon: '/wricom-logo.png',
+  },
 }
 
 export default function RootLayout({

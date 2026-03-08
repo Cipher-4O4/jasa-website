@@ -12,12 +12,47 @@ export default function Contact() {
     budget: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    alert('Terima kasih! Pesan Anda telah dikirim. Kami akan menghubungi Anda dalam 1x24 jam.')
+    setIsSubmitting(true)
+    setSubmitMessage('')
+
+    try {
+      const response = await fetch('https://formspree.io/f/xkoqgvda', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          budget: formData.budget,
+          message: formData.message,
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitMessage('✅ Terima kasih! Pesan Anda telah dikirim. Kami akan menghubungi Anda dalam 1x24 jam.')
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          budget: '',
+          message: ''
+        })
+      } else {
+        setSubmitMessage('❌ Terjadi kesalahan. Silakan coba lagi.')
+      }
+    } catch (error) {
+      setSubmitMessage('❌ Terjadi kesalahan. Silakan coba lagi.')
+      console.error('Error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -75,7 +110,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900 dark:text-white">Telepon/WhatsApp</div>
-                  <div className="text-gray-600 dark:text-gray-300">+62 812-3456-7890</div>
+                  <div className="text-gray-600 dark:text-gray-300">+62 889-8915-3569</div>
                   <div className="text-sm text-blue-600 dark:text-blue-400">Available 24/7</div>
                 </div>
               </motion.div>
@@ -89,7 +124,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900 dark:text-white">WhatsApp Business</div>
-                  <div className="text-gray-600 dark:text-gray-300">+62 812-3456-7890</div>
+                  <div className="text-gray-600 dark:text-gray-300">+62 889-8915-3569</div>
                   <div className="text-sm text-green-600 dark:text-green-400">Fast Response</div>
                 </div>
               </motion.div>
@@ -103,7 +138,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900 dark:text-white">Email</div>
-                  <div className="text-gray-600 dark:text-gray-300">hello@webdevagency.com</div>
+                  <div className="text-gray-600 dark:text-gray-300">wricom.digital@gmail.com</div>
                   <div className="text-sm text-red-600 dark:text-red-400">Response dalam 2 jam</div>
                 </div>
               </motion.div>
@@ -116,11 +151,8 @@ export default function Contact() {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900 dark:text-white">Alamat Kantor</div>
-                  <div className="text-gray-600 dark:text-gray-300">
-                    Jl. Teknologi No. 123<br />
-                    Jakarta Selatan, 12560
-                  </div>
+                  {/* Alamat kantor dihapus atas permintaan */}
+                  <div className="text-gray-600 dark:text-gray-300">Informasi lokasi dihilangkan.</div>
                 </div>
               </motion.div>
             </div>
@@ -232,14 +264,38 @@ export default function Contact() {
                   />
                 </div>
 
+                {submitMessage && (
+                  <div className={`p-4 rounded-xl text-center font-medium ${
+                    submitMessage.includes('✅') 
+                      ? 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400' 
+                      : 'bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400'
+                  }`}>
+                    {submitMessage}
+                  </div>
+                )}
+
                 <motion.button
                   type="submit"
+                  disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+                  className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
+                    isSubmitting
+                      ? 'bg-gray-400 dark:bg-gray-600 text-gray-700 dark:text-gray-300 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white'
+                  }`}
                 >
-                  <Send className="w-5 h-5" />
-                  Kirim Pesan Sekarang
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      Mengirim...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Kirim Pesan Sekarang
+                    </>
+                  )}
                 </motion.button>
 
                 <p className="text-center text-sm text-gray-500 dark:text-gray-400">

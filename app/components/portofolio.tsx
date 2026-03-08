@@ -70,6 +70,29 @@ const projects = [
     githubUrl: "#",
     featured: false
   }
+  ,
+  {
+    id: 7,
+    title: "Family Laundry",
+    description: "Website layanan laundry online dengan fitur pemesanan, tracking, dan informasi layanan. Dibangun menggunakan Node.js, Tailwind, dan MySQL.",
+    category: "Website",
+    image: "/api/placeholder/600/400",
+    technologies: ["Node.js", "Tailwind", "MySQL"],
+    liveUrl: "https://familylaundry.my.id",
+    githubUrl: "#",
+    featured: true
+  },
+  {
+    id: 8,
+    title: "Spanda Coffee Shop",
+    description: "Website toko kopi modern dengan katalog produk, sistem pemesanan online, dan informasi lokasi toko. Desain interaktif dengan user experience yang optimal untuk pelanggan kopi.",
+    category: "Cafe Shop",
+    image: "/api/placeholder/600/400",
+    technologies: ["Next.js", "Tailwind", "React"],
+    liveUrl: "https://spanda-coffee.vercel.app/",
+    githubUrl: "#",
+    featured: true
+  }
 ]
 
 export default function Portfolio() {
@@ -114,12 +137,22 @@ export default function Portfolio() {
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
                   <div className="flex gap-4 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-300">
-                    <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                    <a
+                      href={project.liveUrl || '#'}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                    >
                       <Eye className="w-5 h-5 text-gray-700" />
-                    </button>
-                    <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                    </a>
+                    <a
+                      href={project.liveUrl || '#'}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                    >
                       <ExternalLink className="w-5 h-5 text-gray-700" />
-                    </button>
+                    </a>
                   </div>
                 </div>
 
@@ -155,13 +188,23 @@ export default function Portfolio() {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2">
+                  <a
+                    href={project.liveUrl || '#'}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
+                  >
                     <ExternalLink className="w-4 h-4" />
                     Live Demo
-                  </button>
-                  <button className="w-12 h-12 border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 rounded-lg flex items-center justify-center transition-colors">
+                  </a>
+                  <a
+                    href={project.githubUrl || '#'}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="w-12 h-12 border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 rounded-lg flex items-center justify-center transition-colors"
+                  >
                     <Github className="w-5 h-5" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.div>
