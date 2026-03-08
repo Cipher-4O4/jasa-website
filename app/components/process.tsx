@@ -56,7 +56,7 @@ const processSteps = [
 
 export default function Process() {
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="process" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div 
@@ -168,12 +168,26 @@ export default function Process() {
               kami akan siapkan solusi terbaik dengan timeline dan budget yang jelas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://wa.me/628898153569?text=Saya%20ingin%20berkonsultasi%20tentang%20website"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 text-center"
+              >
                 Mulai Konsultasi Sekarang
-              </button>
-              <button className="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300">
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://portfolio-website-xi-mauve-13.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 text-center"
+              >
                 Lihat Portfolio Lengkap
-              </button>
+              </motion.a>
             </div>
           </div>
         </motion.div>

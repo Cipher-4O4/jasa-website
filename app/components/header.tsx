@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Menu, X, Code2 } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -10,7 +10,7 @@ export default function Header() {
 
   const navigation = [
     { name: 'Home', href: '#home' },
-    { name: 'Layanan', href: '#services' },
+    { name: 'Harga', href: '#pricing' },
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Testimoni', href: '#testimonials' },
     { name: 'Proses', href: '#process' },
@@ -52,15 +52,19 @@ export default function Header() {
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-3"
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center text-white">
-                <Code2 className="w-6 h-6" />
-              </div>
+              <img
+                src="/wricom-logo.png"
+                alt="Wricom Logo"
+                width="40"
+                height="40"
+                className="rounded-lg w-10 h-10"
+              />
               <div>
                 <div className="text-xl font-bold text-gray-900 dark:text-white">
-                  WebDev<span className="text-blue-600">Agency</span>
+                  <span className="text-blue-600">Wricom</span>
                 </div>
                 <div className="text-xs text-gray-500 dark:text-gray-400 -mt-1">
-                  Professional Web Solutions
+                  Create Your Own Software
                 </div>
               </div>
             </motion.div>
@@ -81,14 +85,16 @@ export default function Header() {
 
             {/* CTA Button - Desktop */}
             <div className="hidden lg:block">
-              <motion.button
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('#contact')}
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-blue-500/25"
+                href="https://wa.me/628898153569?text=Saya%20ingin%20berkonsultasi%20tentang%20website"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-blue-500/25 inline-block"
               >
                 Konsultasi Gratis
-              </motion.button>
+              </motion.a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -118,12 +124,14 @@ export default function Header() {
                   {item.name}
                 </button>
               ))}
-              <button
-                onClick={() => scrollToSection('#contact')}
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 mt-4"
+              <motion.a
+                href="https://wa.me/628898153569?text=Saya%20ingin%20berkonsultasi%20tentang%20website"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 mt-4 block text-center"
               >
                 Konsultasi Gratis
-              </button>
+              </motion.a>
             </nav>
           </div>
         </motion.div>
